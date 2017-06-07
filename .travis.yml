@@ -4,6 +4,7 @@ cache:
     directories:
         - node_modules
 script:
+    - eslint src
     - sed -i '/"homepage":/d; 2a "homepage":"'/react/$TRAVIS_BRANCH'",' package.json
     - npm run build
     - mkdir deploy
