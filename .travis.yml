@@ -3,8 +3,13 @@ node_js: node
 cache:
     directories:
         - node_modules
-script:
-    - which node
-    - node -v
-    - /usr/bin/node -v
-    - npm run build
+script: npm run build
+deploy:
+    provider: s3
+    access_key_id: "p+LaxbHAZOLh0CjRyPBuAI81CLOGogR5rbE8okXBm45OSPyeHAkV4m7a9/TLVOilw7xw08ZDL1i9k+9W4MJez4LEveow7E0TZkxYA3nGxOIUhIQJGHcRaxt/wz90nv46dMwhBjGpw2kF0klazYxgWq8UU137R706PLTNbObw4r/U97JvvYXVkCnIfTS7wXKpl7mo1dn5uQ7N2bLCGaaIUxhY9I5ab/WdOLNV77kqYJjJTwUkExivoKms8dPmfWqWH2d4suR+lRLfIhF9d635QRAnbQo9HGxatJSphw129otP1r6wADb2LVbddRZz8+Lg1QXtaQhFRDY48UupPpAOmc+H5AQunplsCHP8s7xRUMDvC/cUjP/vtt4HdiM09lm0KI0IZRZ0k3tHcdVxKA8FykGsoOZcFmak3Y7SfUO7jnf8tm4jX2cFHXaxc8zd7/GE2bYCZnam79SyCul5gHXFgJFvkyzzT2hAZT9qJkxx3IXtVOpKA+cEGSF+ST/Hxn/4MEeoLVOnJnLWqAxk5qwclAYdYGASoLLp4SfJvckaUotBSk5LfcckIQBP4hkqWqQJbfzeTrenWVTUIipQ4L3p8StqkloPAZ5QqY9RDfIDxByx7xwvmmD9JXTjZu+aJ2TZrO2BnEoiFqwcE8x3Tf2VumffXix3raPRh1c5mT2xMHE="
+    secret_access_key: "I8UOrpJTDNT9viGl9Sru+Dtz5ULDwkDaVg1U1FqUn415ajKF2rF/p2Lsr2Mi0o7s1dpoDn0/VwB8+GrwTtv/dijt5fTggCz2IWFK19yTiRyENgP1/leNiK3qMuednusVbCYtruFUOVPdJ50liXFU4hf4klip+JcCi3PJzfGtjbedAKE9hlBFNEM0IW4Si62tPYqbNp8P2a5Zl1+O1rJuHh5BqqXSFqVmHQLXvwIbaECfSV//gG1Klod1WQn1eTPbMgC8LRPd2QMgqqyoiMjbfNfHhS+cl/07c4BdjnPBt2pvYbR3Ckyn1yle55YL2e8j9qL9ANBIlLWo9M1kADni3c9ap9O9noyM8AoOmCB+HEDLdU+pNU0GwV9K5INTSGgE5OXd2DIgCvGS9FoLWDQjizH2UmkBKk2+JkAKlVHmkil40MA2nIu7YfI6uSSf9V3o32aiAjEerbnVHzUMdA90LXPu5BQ4kHgvoo5mpvPpKRnCZsvS2tpIY3Hwjtv7uCcjoLZqXy04OElWbaPOTESqNWu+pa08yPO+nV4WjIVdTJtqYTTmo9C41KpbJp82xTFLJEOSm38Ag6dfTiFCa7afRVNBDKgW1N/nFvhxTfcuxgJoCH0dYQaBKdL7+UVofZfBYT4C1cT/3Fii/fGPJK7qkX7hCq43Zhf3hY7xAzaHRaA="
+    bucket: static.aryehleib.com
+    skip_cleanup: true
+    acl: public_read
+    local_dir: build
+    upload-dir: react
