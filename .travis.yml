@@ -3,7 +3,11 @@ node_js: node
 cache:
     directories:
         - node_modules
-script: npm run build
+script:
+    - sed -i '2a "homepage":"'/react/${TRAVIS_TAG:-$TRAVIS_BRANCH}'",' package.json
+    - npm run build
+    - mkdir deploy
+    - mv build deploy/${TRAVIS_TAG:-$TRAVIS_BRANCH}
 deploy:
     provider: s3
     access_key_id:
@@ -15,3 +19,5 @@ deploy:
     acl: public_read
     local_dir: build
     upload-dir: react
+    on:
+        all_branches: true
