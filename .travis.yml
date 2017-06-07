@@ -5,6 +5,8 @@ cache:
     directories:
         - node_modules
 script:
+    - which eslint
+    - eslint -v
     - eslint src
     - sed -i '/"homepage":/d; 2a "homepage":"'/react/${TRAVIS_TAG:-$TRAVIS_BRANCH}'",' package.json
     - npm run build
