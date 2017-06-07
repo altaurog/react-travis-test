@@ -4,10 +4,10 @@ cache:
     directories:
         - node_modules
 script:
-    - sed -i '/"homepage":/d; 2a "homepage":"'/react/${TRAVIS_TAG:-$TRAVIS_BRANCH}'",' package.json
+    - sed -i '/"homepage":/d; 2a "homepage":"'/react/$TRAVIS_BRANCH'",' package.json
     - npm run build
     - mkdir deploy
-    - mv build deploy/${TRAVIS_TAG:-$TRAVIS_BRANCH}
+    - mv build deploy/$TRAVIS_BRANCH
 deploy:
     provider: s3
     bucket: static.aryehleib.com
