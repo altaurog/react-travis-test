@@ -12,10 +12,10 @@ script:
     - mv build deploy/${TRAVIS_TAG:-$TRAVIS_BRANCH}
 deploy:
     provider: s3
-    bucket: static.aryehleib.com
+    bucket: $BUCKET
     skip_cleanup: true
     acl: public_read
     local_dir: deploy
-    upload-dir: react
+    upload-dir: $S3PATH
     on:
         all_branches: true
