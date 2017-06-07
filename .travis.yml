@@ -3,4 +3,8 @@ node_js: node
 cache:
     directories:
         - node_modules
-script: npm run build
+script:
+    - which node
+    - node -v
+    - /usr/bin/node -v
+    - npm run build
