@@ -4,6 +4,8 @@ node_js: node
 cache:
     directories:
         - node_modules
+before_install:
+    - "echo tag: $TRAVIS_TAG"
 script:
     - eslint src
     - sed -i '/"homepage":/d; 2a "homepage":"'/react/$TRAVIS_BRANCH'",' package.json
